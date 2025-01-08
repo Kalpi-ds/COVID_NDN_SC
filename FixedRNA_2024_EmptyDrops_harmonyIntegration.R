@@ -11,8 +11,8 @@ library(harmony)
 library(gridExtra)
 
 
-#setwd("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA")
-setwd("/bio/home/kkdesi01/KBRIN0XXX-Yan-FixedRNA")
+#setwd("C:/path/Fixed_RNA")
+setwd("/path/KBRIN0XXX-xxx-FixedRNA")
 
 #################
 covid.filtered.seurat.obj <- readRDS("./NDN_Analysis/my_rds/covid.filtered.Bfilter.seurat.obj.EmptyDrops.rds")
