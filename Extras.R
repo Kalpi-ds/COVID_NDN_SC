@@ -4,10 +4,7 @@ library(tidyverse)
 library(gridExtra)
 library(dplyr)
 
-
-
-
-covid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.seurat.obj.rds")
+covid.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.seurat.obj.rds")
 
 view(covid.seurat.obj)
 
@@ -36,7 +33,7 @@ covid.seurat.obj <- subset(covid.seurat.obj, subset = nFeature_RNA > 100 & nFeat
 
 #I want to see how many cells left from a sample after filtering
 
-covid.filtered.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.filtered.seurat.obj.rds")
+covid.filtered.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.filtered.seurat.obj.rds")
 covid.filtered.seurat.obj
 
 sample_counts <- table(covid.filtered.seurat.obj$sample)
@@ -78,7 +75,7 @@ covid.filtered.seurat.obj.Subset
 
 
 
-covid.filtered.integrated.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.filtered.integrated.seurat.obj.rds")
+covid.filtered.integrated.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.filtered.integrated.seurat.obj.rds")
 covid.filtered.integrated.seurat.obj
 
 
@@ -89,14 +86,14 @@ p3 <- DimPlot(covid.filtered.integrated.seurat.obj, reduction = 'umap', group.by
 p4 <- DimPlot(covid.filtered.integrated.seurat.obj, reduction = 'umap', group.by = 'group', cols = c('red','green','blue','yellow','violet','cyan','orange','gray','pink'))
 p5 <- DimPlot(covid.filtered.integrated.seurat.obj, reduction = 'umap', group.by = 'seurat_clusters', label = TRUE)
 
-covid.filter3.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.filtered.seurat.obj.EmptyDrops.rds")
+covid.filter3.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.filtered.seurat.obj.EmptyDrops.rds")
 covid.filter3.seurat.obj
 #An object of class Seurat 
 #37143 features across 120981 samples within 1 assay 
 #Active assay: RNA (37143 features, 2000 variable features)
 view(covid.filter3.seurat.obj)
 
-covid.filter3.harmony.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA//Harmony/covid.filtered.seurat.HarmonyIntegration.obj.EmptyDrops.rds")
+covid.filter3.harmony.seurat.obj <- readRDS("C:/path/Fixed_RNA//Harmony/covid.filtered.seurat.HarmonyIntegration.obj.EmptyDrops.rds")
 covid.filter3.harmony.seurat.obj
 #An object of class Seurat 
 #37143 features across 120981 samples within 1 assay 
@@ -110,7 +107,7 @@ library(Seurat)
 
 #dotplot of genes of interest
 
-covid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.Allmarkers.seurat.BTfilter.obj.rds")
+covid.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.Allmarkers.seurat.BTfilter.obj.rds")
 
 view(covid.seurat.obj)
 
@@ -141,7 +138,7 @@ dot_plot <- DotPlot(object = covid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/All_Res0.3/Top3Markers_dotplot_seuratcluster.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/All_Res0.3/Top3Markers_dotplot_seuratcluster.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -158,14 +155,14 @@ dot_plot <- DotPlot(object = covid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/All_Res0.3/Top3Markers_dotplot_group.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/All_Res0.3/Top3Markers_dotplot_group.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
 
 #Bycelltype
 #NDN
-NDNcovid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.NDN.0.3.Markers.seurat.obj.rds")
+NDNcovid.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.NDN.0.3.Markers.seurat.obj.rds")
 view(NDNcovid.seurat.obj)
 
 #Idents(object = NDNcovid.seurat.obj) <- "RNA_snn_res_0.3"
@@ -194,7 +191,7 @@ dot_plot <- DotPlot(object = NDNcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/NDN/Top3Markers_dotplot_seuratcluster.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/NDN/Top3Markers_dotplot_seuratcluster.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -211,13 +208,13 @@ dot_plot <- DotPlot(object = NDNcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/NDN/Top3Markers_dotplot_group.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/NDN/Top3Markers_dotplot_group.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
 
 #CD16_high
-CD16_highcovid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.CD16_high.0.3.Markers.seurat.obj.rds")
+CD16_highcovid.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.CD16_high.0.3.Markers.seurat.obj.rds")
 #view(CD16_highcovid.seurat.obj)
 
 #Idents(object = NDNcovid.seurat.obj) <- "RNA_snn_res_0.3"
@@ -246,7 +243,7 @@ dot_plot <- DotPlot(object = CD16_highcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/CD16_high/Top3Markers_dotplot_seuratcluster.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/CD16_high/Top3Markers_dotplot_seuratcluster.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -263,14 +260,14 @@ dot_plot <- DotPlot(object = CD16_highcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/CD16_high/Top3Markers_dotplot_group.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/CD16_high/Top3Markers_dotplot_group.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
 
 
 #CD16_int
-CD16_intcovid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/covid.CD16_int.0.3.Markers.seurat.obj.rds")
+CD16_intcovid.seurat.obj <- readRDS("C:/path/Fixed_RNA/my_rds/covid.CD16_int.0.3.Markers.seurat.obj.rds")
 #view(CD16_highcovid.seurat.obj)
 
 #Idents(object = NDNcovid.seurat.obj) <- "RNA_snn_res_0.3"
@@ -299,7 +296,7 @@ dot_plot <- DotPlot(object = CD16_intcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/CD16_int/Top3Markers_dotplot_seuratcluster.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/CD16_int/Top3Markers_dotplot_seuratcluster.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -316,7 +313,7 @@ dot_plot <- DotPlot(object = CD16_intcovid.seurat.obj, features = top3_genes,
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/my_rds/4Markers/CD16_int/Top3Markers_dotplot_group.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/my_rds/4Markers/CD16_int/Top3Markers_dotplot_group.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -327,7 +324,7 @@ ggsave(filename = output_file2, plot = dot_plot, device = output_format, width =
 
 #NDN
 
-data <- read.csv("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_clusters_percent.csv")
+data <- read.csv("C:/path/Fixed_RNA/NDN_clusters_percent.csv")
 df <- data.frame(data)
 df
 
@@ -376,7 +373,7 @@ stackedbarplot <- ggplot(final_df, aes(fill=Cells, y=`Cell Percent`, x=Cluster_I
         legend.title = element_text(size = 14, face = "bold")) +
         scale_x_discrete(limits = as.character(0:9)) 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/NDN_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
 
 # ggplot(final_df, aes(x=Cluster_ID, y=`Cell Percent`, fill=cells)) + 
 #   geom_col(position="dodge") + 
@@ -393,12 +390,12 @@ barplot <- ggplot(final_df, aes(x=Cluster_ID, y=`Cell Percent`, fill=cells)) +
   scale_x_discrete(limits = as.character(0:9)) 
 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_barplot.pdf", plot = barplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/NDN_barplot.pdf", plot = barplot, width = 8, height = 6, units = "in")
 
 
 #high & int
 
-data <- read.csv("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/CD16_int_clusters_percent.csv")
+data <- read.csv("C:/path/Fixed_RNA/CD16_int_clusters_percent.csv")
 df <- data.frame(data)
 df
 
@@ -447,7 +444,7 @@ stackedbarplot <- ggplot(final_df, aes(fill=Cells, y=`Cell Percent`, x=Cluster_I
         legend.title = element_text(size = 14, face = "bold")) +
   scale_x_discrete(limits = as.character(0:7)) 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/CD16_int_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/CD16_int_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
 
 # ggplot(final_df, aes(x=Cluster_ID, y=`Cell Percent`, fill=cells)) + 
 #   geom_col(position="dodge") + 
@@ -464,7 +461,7 @@ barplot <- ggplot(final_df, aes(x=Cluster_ID, y=`Cell Percent`, fill=Cells)) +
   scale_x_discrete(limits = as.character(0:7)) 
 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/CD16_int_barplot.pdf", plot = barplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/CD16_int_barplot.pdf", plot = barplot, width = 8, height = 6, units = "in")
 
 #######################################################################
 #pie chart
@@ -532,7 +529,7 @@ print(bp_c19)
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = bp_c19, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -559,11 +556,11 @@ bp_Healthy <- ggplot(df, aes(x="", y=Healthy_NDN, fill=factor(Cluster_ID))) +
 # Print the pie chart
 print(bp_Healthy)
 
-#ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf", plot = bp_c19) 
+#ggsave("C:/path/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf", plot = bp_c19) 
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/Healthy_NDN_pie.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/NDN_Analysis/Healthy_NDN_pie.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = bp_Healthy, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -590,11 +587,11 @@ bp_nonc19 <- ggplot(df, aes(x="", y=Non_C19_NDN, fill=factor(Cluster_ID))) +
 # Print the pie chart
 print(bp_nonc19)
 
-#ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf", plot = bp_c19) 
+#ggsave("C:/path/Fixed_RNA/NDN_Analysis/C19_NDN_pie.pdf", plot = bp_c19) 
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/Non_C19_NDN_pie.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/NDN_Analysis/Non_C19_NDN_pie.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = bp_nonc19, device = output_format, width = pdf_width, height = pdf_height)
 
@@ -670,7 +667,7 @@ stackedbarplot <- ggplot(final_df, aes(fill=Clusters, y=`NDN Percent`, x=C19_Pat
         legend.title = element_text(size = 14, face = "bold")) +
   scale_x_discrete(limits = as.character(1:7)) 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/C19_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/NDN_Analysis/C19_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
 
 
 #Healthy_NDN
@@ -732,7 +729,7 @@ stackedbarplot <- ggplot(final_df, aes(fill=Clusters, y=`NDN Percent`, x=Healthy
         legend.title = element_text(size = 14, face = "bold")) +
   scale_x_discrete(limits = as.character(1:5)) 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/Healthy_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/NDN_Analysis/Healthy_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
 
 
 
@@ -795,7 +792,7 @@ stackedbarplot <- ggplot(final_df, aes(fill=Clusters, y=`NDN Percent`, x=Non_C19
         legend.title = element_text(size = 14, face = "bold")) +
   scale_x_discrete(limits = as.character(1:2)) 
 
-ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/Non_C19_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
+ggsave("C:/path/Fixed_RNA/NDN_Analysis/Non_C19_patient_stackedbarplot.pdf", plot = stackedbarplot, width = 8, height = 6, units = "in")
 
 ###########################################################
 #dotplot
@@ -803,7 +800,7 @@ ggsave("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/N
 library(Seurat)
 
 #NDN
-NDNcovid.seurat.obj <- readRDS("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/covid.NDN.0.3.Markers.BTfilter.seurat.obj.rds")
+NDNcovid.seurat.obj <- readRDS("C:/path/Fixed_RNA/NDN_Analysis/covid.NDN.0.3.Markers.BTfilter.seurat.obj.rds")
 NDNcovid.seurat.obj
 
 #Idents(object = NDNcovid.seurat.obj) <- "RNA_snn_res_0.3"
@@ -848,7 +845,7 @@ dot_plot <- DotPlot(object = NDNcovid.seurat.obj, features = unique(top3_genes),
 
 pdf_width <- 10
 pdf_height <- 7
-output_file2 <- file.path("C:/Kalpani/KY-INBRE PostDoc/Single_Cell/Jun Yan/Fixed_RNA/NDN_Analysis/Top3Markers_dotplot_group.pdf")
+output_file2 <- file.path("C:/path/Fixed_RNA/NDN_Analysis/Top3Markers_dotplot_group.pdf")
 output_format <- "pdf"
 ggsave(filename = output_file2, plot = dot_plot, device = output_format, width = pdf_width, height = pdf_height)
 
