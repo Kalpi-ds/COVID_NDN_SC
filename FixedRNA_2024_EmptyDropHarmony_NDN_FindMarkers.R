@@ -1,4 +1,4 @@
-#FixedRNA_Yan_Feb2024 - Single cell transcriptomic analysis of Neutrophils on COVID19 patients
+#FixedRNA_Feb2024 - Single cell transcriptomic analysis of Neutrophils on COVID19 patients
 #March 2024 -Kalpani de Silva
 
 # load libraries
@@ -15,7 +15,7 @@ library(DropletUtils)
 library(SingleCellExperiment)
 
 
-setwd("/bio/home/kkdesi01/KBRIN0XXX-Yan-FixedRNA")
+setwd("/path/KBRIN0XXX-xxx-FixedRNA")
 
 
 #~~~~~~~~~~~~~~~~~~~~~~
